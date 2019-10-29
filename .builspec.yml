@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 8
+    commands:
+    - yarn install 
+    - yarn test
+    - yarn build
+    - aws s3 sync public "s3://test-codebuilds" --quiet --delete
